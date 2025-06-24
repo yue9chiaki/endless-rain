@@ -80,6 +80,32 @@
     ————月无华
   </div>
 
+  <button onclick="toggleImage()">点击显示/隐藏图片</button>
+
+<div id="imageContainer" style="margin-top: 1rem; opacity: 0; transition: opacity 1s; display: none;">
+  <img src="images/DAC5380C04F3A809E034A16844061BD5.png" alt="图片" style="max-width: 100%; border-radius: 8px;">
+</div>
+
+<script>
+  let isVisible = false;
+
+  function toggleImage() {
+    const container = document.getElementById('imageContainer');
+    if (!isVisible) {
+      container.style.display = 'block';
+      setTimeout(() => {
+        container.style.opacity = '1';
+      }, 10);
+    } else {
+      container.style.opacity = '0';
+      setTimeout(() => {
+        container.style.display = 'none';
+      }, 1000); // 等待淡出动画完成后再隐藏
+    }
+    isVisible = !isVisible;
+  }
+</script>
+
   <script>
     const canvas = document.getElementById('rainCanvas');
     const ctx = canvas.getContext('2d');

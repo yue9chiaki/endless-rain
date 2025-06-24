@@ -80,11 +80,55 @@
     ————月无华
   </div>
 
-  <button onclick="toggleImage()">点击显示/隐藏图片</button>
+<!-- 更漂亮的按钮 -->
+<button onclick="toggleImage()" style="
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(to right, #3a3a3a, #1f1f1f);
+  color: #e0e0e0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+  显示 / 隐藏图片
+</button>
 
-<div id="imageContainer" style="margin-top: 1rem; opacity: 0; transition: opacity 1s; display: none;">
-  <img src="images/DAC5380C04F3A809E034A16844061BD5.png" alt="图片" style="max-width: 100%; border-radius: 8px;">
+<!-- 控制显示隐藏的图片 -->
+<div id="imageContainer" style="
+  margin-top: 1rem;
+  opacity: 0;
+  transition: opacity 1s ease;
+  display: none;
+  text-align: center;">
+  <img src="images/DAC5380C04F3A809E034A16844061BD5.png" alt="图片" style="
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  ">
 </div>
+
+<script>
+  let isVisible = false;
+
+  function toggleImage() {
+    const container = document.getElementById('imageContainer');
+    if (!isVisible) {
+      container.style.display = 'block';
+      setTimeout(() => {
+        container.style.opacity = '1';
+      }, 10);
+    } else {
+      container.style.opacity = '0';
+      setTimeout(() => {
+        container.style.display = 'none';
+      }, 1000);
+    }
+    isVisible = !isVisible;
+  }
+</script>
 
 <script>
   let isVisible = false;
